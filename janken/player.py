@@ -1,5 +1,5 @@
-from abc import ABC, abstractmethod
 import random
+from abc import ABC
 
 from .hands import rock, paper, scissors
 from .score import Score
