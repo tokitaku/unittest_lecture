@@ -1,5 +1,5 @@
-from player import User, CPU
-from referee import Referee
+from janken.player import User, CPU
+from janken.referee import Referee
 
 
 def graceful_exit(user: User):
