@@ -37,7 +37,7 @@ class User(Player):
         """
 
         print("あなたの手をアルファベットで入力してください。")
-        choices = "".join(f'{key}: {hand.name}\n' for key, hand in CHOICES.items())
+        choices = "".join(f'{key}: {hand._name}\n' for key, hand in CHOICES.items())
         choice = ''
         while choice not in CHOICES:
             choice = input(f'{choices}').lower()
