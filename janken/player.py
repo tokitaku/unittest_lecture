@@ -1,8 +1,8 @@
 import random
 from abc import ABC
 
-from .hands import rock, paper, scissors
-from .score import Score
+from janken.hands import rock, paper, scissors
+from janken.score import Score
 
 # プレイヤーの選択肢
 CHOICES = {
@@ -37,7 +37,7 @@ class User(Player):
         """
 
         print("あなたの手をアルファベットで入力してください。")
-        choices = "".join(f'{key}: {hand._name}\n' for key, hand in CHOICES.items())
+        choices = "".join(f'{key}: {hand.name}\n' for key, hand in CHOICES.items())
         choice = ''
         while choice not in CHOICES:
             choice = input(f'{choices}').lower()

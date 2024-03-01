@@ -1,5 +1,5 @@
-from .hands import rock, paper, scissors
-from .player import User, CPU
+from janken.hands import rock, paper, scissors
+from janken.player import User, CPU
 
 
 class Referee:
