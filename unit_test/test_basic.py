@@ -1,17 +1,28 @@
 from unittest import TestCase
 
 
+def add(a, b):
+    return a + b
+
+
+def return_none():
+    return None
+
+
 class TestUnitTestClass(TestCase):
     """ unit_test のテストクラス """
 
     def test_method(self):
-        """ unit_test のテストメソッド """
-        self.assertEqual(2, 2)
+        """ add のテスト """
+        result = add(1, 2)
+        self.assertEqual(result, 3)
 
     def test_method_2(self):
-        """ unit_test のテストメソッド """
-        self.assertIsNone(None)
+        """ return_none のテスト """
+        result = return_none()
+        self.assertIsNone(result)
 
     def test_method_3(self):
-        """ unit_test のテストメソッド """
-        assert 1 == 1
+        """ add のテスト"""
+        result = add(1, 2)
+        assert result == 3
