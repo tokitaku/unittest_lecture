@@ -11,7 +11,6 @@ class TestPlayerCommonality(TestCase):
     def setUpClass(cls):
         """ テストクラスの前処理 テスト実行時に最初に一度だけ実行される"""
         print("\nsetUpClass")
-        cls.player = Player()
 
     @classmethod
     def tearDownClass(cls):
@@ -21,6 +20,7 @@ class TestPlayerCommonality(TestCase):
     def setUp(self):
         """ テストメソッドの前処理 それぞれのテストメソッドの前に実行される"""
         print("\nsetUp")
+        self.player = Player()
 
     def tearDown(self):
         """ テストメソッドの後処理 それぞれのテストメソッドの後に実行される """
