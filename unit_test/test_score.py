@@ -9,7 +9,7 @@ class TestScore(TestCase):
     """ 勝敗によってユーザーのスコアが正しく加算されるかテスト """
 
     def setUp(self):
-        """ 個々のテストでインスタンスを生成する (setUpClassだと値が保持されるため)"""
+        """ 個々のテストでインスタンスを生成する """
         self.user = User()
         self.cpu = CPU()
         self.referee = Referee()
