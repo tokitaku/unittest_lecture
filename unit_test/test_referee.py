@@ -8,11 +8,10 @@ from janken.referee import Referee
 class TestReferee(TestCase):
     """ Referee のテスト """
 
-    @classmethod
-    def setUpClass(cls):
-        cls.user = User()
-        cls.cpu = CPU()
-        cls.referee = Referee()
+    def setUp(self):
+        self.user = User()
+        self.cpu = CPU()
+        self.referee = Referee()
 
     def test_user_win_rock_vs_scissors(self):
         """ ユーザーがグー、CPUがチョキでユーザーが勝つケース """
