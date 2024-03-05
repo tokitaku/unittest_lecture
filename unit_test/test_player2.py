@@ -24,7 +24,7 @@ class TestPlayerCommonality(TestCase):
 
     def tearDown(self):
         """ テストメソッドの後処理 それぞれのテストメソッドの後に実行される """
-        print("\ntearDown")
+        print("tearDown")
 
     def test_choice_rock(self):
         """Player の手をグーに設定するテスト"""
