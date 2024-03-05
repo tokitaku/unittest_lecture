@@ -32,6 +32,26 @@ class Worker:
         self._scheduled_worktime, self._over_worktime = self._calc_weekday_worktime()  # 平日所定内労働時間と平日所定外時間
         self._holiday_worktime = self._total_worktime if not is_weekday else timedelta(0)  # 休日労働時間
 
+    @property
+    def name(self) -> str:
+        return self._name
+
+    @property
+    def total_worktime(self) -> timedelta:
+        return self._total_worktime
+
+    @property
+    def scheduled_worktime(self) -> timedelta:
+        return self._scheduled_worktime
+
+    @property
+    def over_worktime(self) -> timedelta:
+        return self._over_worktime
+
+    @property
+    def holiday_worktime(self) -> timedelta:
+        return self._holiday_worktime
+
     def _calc_total_worktime(self) -> timedelta:
         """総労働時間を計算する"""
         return self._finishing_time - self._starting_time - self._break_time
@@ -65,23 +85,3 @@ class Worker:
             else:
                 return self._total_worktime, timedelta(0)
         return timedelta(0), timedelta(0)
-
-    @property
-    def name(self) -> str:
-        return self._name
-
-    @property
-    def total_worktime(self) -> timedelta:
-        return self._total_worktime
-
-    @property
-    def scheduled_worktime(self) -> timedelta:
-        return self._scheduled_worktime
-
-    @property
-    def over_worktime(self) -> timedelta:
-        return self._over_worktime
-
-    @property
-    def holiday_worktime(self) -> timedelta:
-        return self._holiday_worktime
