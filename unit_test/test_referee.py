@@ -17,7 +17,6 @@ class TestReferee(TestCase):
         """ ユーザーがグー、CPUがチョキでユーザーが勝つケース """
         self.user.hand = rock
         self.cpu.hand = scissors
-        self.referee.evaluate_judge(self.user, self.cpu)
         result = self.referee._is_user_win(self.user.hand, self.cpu.hand)
         self.assertTrue(result)
 
@@ -25,7 +24,6 @@ class TestReferee(TestCase):
         """ ユーザーがチョキ、CPUがパーでユーザーが勝つケース """
         self.user.hand = scissors
         self.cpu.hand = paper
-        self.referee.evaluate_judge(self.user, self.cpu)
         result = self.referee._is_user_win(self.user.hand, self.cpu.hand)
         self.assertTrue(result)
 
@@ -33,7 +31,6 @@ class TestReferee(TestCase):
         """ ユーザーがパー、CPUがグーでユーザーが勝つケース """
         self.user.hand = paper
         self.cpu.hand = rock
-        self.referee.evaluate_judge(self.user, self.cpu)
         result = self.referee._is_user_win(self.user.hand, self.cpu.hand)
         self.assertTrue(result)
 
