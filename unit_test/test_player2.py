@@ -10,7 +10,7 @@ class TestPlayerCommonality(TestCase):
     @classmethod
     def setUpClass(cls):
         """ テストクラスの前処理 テスト実行時に最初に一度だけ実行される"""
-        print("\nsetUpClass")
+        print("\nsetUpClass\n")
 
     @classmethod
     def tearDownClass(cls):
