@@ -5,7 +5,7 @@ from janken.referee import Referee
 def graceful_exit(user: User):
     """Ctrl+Cで終了されたときにプログラムを終了させる関数"""
     print("ゲームを終了します。")
-    user.score.show()
+    print(user.score.show())
     exit()
 
 
@@ -52,7 +52,7 @@ def play_game():
     except KeyboardInterrupt:
         graceful_exit(user)
 
-    user.score.show()
+    print(user.score.show())
     print('またね！')
 
 

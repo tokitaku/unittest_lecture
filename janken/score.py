@@ -10,4 +10,4 @@ class Score:
         self.lose += 1
 
     def show(self):
-        print(f'あなたの成績は {self.win}勝 {self.lose}敗 でした')
+        return f'あなたの成績は {self.win}勝 {self.lose}敗 でした'
