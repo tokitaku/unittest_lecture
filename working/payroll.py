@@ -1,4 +1,6 @@
-from .worker import Worker
+from datetime import datetime, timedelta
+
+from worker import Worker
 
 
 class Payroll:
@@ -15,7 +17,6 @@ class Payroll:
     @property
     def scheduled_salary(self) -> int:
         """平日所定内労働の給与"""
-
         return int(self._worker.scheduled_worktime.seconds / 3600 * self._hourly_pay)
 
     @property
