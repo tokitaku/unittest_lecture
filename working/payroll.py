@@ -1,6 +1,4 @@
-from datetime import datetime, timedelta
-
-from worker import Worker
+from .worker import Worker
 
 
 class Payroll:
