@@ -13,21 +13,22 @@ class Payroll:
         self._hourly_pay = hourly_pay
 
     @property
-    def scheduled_salary(self):
+    def scheduled_salary(self) -> int:
         """平日所定内労働の給与"""
-        return self._worker.scheduled_worktime.seconds / 3600 * self._hourly_pay
+
+        return int(self._worker.scheduled_worktime.seconds / 3600 * self._hourly_pay)
 
     @property
-    def overtime_salary(self):
+    def overtime_salary(self) -> int:
         """平日所定外労働の給与"""
-        return self._worker.over_worktime.seconds / 3600 * self._hourly_pay * 1.25
+        return int(self._worker.over_worktime.seconds / 3600 * self._hourly_pay * 1.25)
 
     @property
-    def holiday_salary(self):
+    def holiday_salary(self) -> int:
         """休日労働の給与"""
-        return self._worker.holiday_worktime.seconds / 3600 * self._hourly_pay * 1.35
+        return int(self._worker.holiday_worktime.seconds / 3600 * self._hourly_pay * 1.35)
 
     @property
-    def total_salary(self):
+    def total_salary(self) -> int:
         """給与合計"""
-        return self.scheduled_salary + self.overtime_salary + self.holiday_salary
+        return int(self.scheduled_salary + self.overtime_salary + self.holiday_salary)
