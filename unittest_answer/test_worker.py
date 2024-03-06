@@ -29,6 +29,10 @@ class TestWeekdayScheduledWorker(TestCase):
         """残業時間計算のテスト"""
         self.assertEqual(self.taro.over_worktime, timedelta(0))
 
+    def test_holiday_worktime(self):
+        """休日労働時間計算のテスト"""
+        self.assertEqual(self.taro.holiday_worktime, timedelta(0))
+
 
 class TestWeekdayOvertimeWorker(TestCase):
     """平日、所定労働時間外で働く労働者"""
@@ -54,6 +58,10 @@ class TestWeekdayOvertimeWorker(TestCase):
     def test_overtime(self):
         """残業時間計算のテスト"""
         self.assertEqual(self.jiro.over_worktime, timedelta(hours=1))
+
+    def test_holiday_worktime(self):
+        """休日労働時間計算のテスト"""
+        self.assertEqual(self.jiro.holiday_worktime, timedelta(0))
 
 
 class HolidayWorker(TestCase):
