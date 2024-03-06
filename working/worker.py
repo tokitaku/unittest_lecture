@@ -22,10 +22,10 @@ class Worker:
         """
 
         self.name = name
-        self._starting_time = starting_time
-        self._finishing_time = finishing_time
-        self._break_time = break_time
-        self._is_weekday = is_weekday
+        self.starting_time = starting_time
+        self.finishing_time = finishing_time
+        self.break_time = break_time
+        self.is_weekday = is_weekday
         self.total_worktime = self._calc_total_worktime()  # 総労働時間
         # self.over_worktime = self._calc_overtime()  # 平日所定外時間
         # self.scheduled_worktime = self._calc_scheduled_worktime()  # 平日所定内労働時間
@@ -39,7 +39,7 @@ class Worker:
         :return: 総労働時間
         """
 
-        return self._finishing_time - self._starting_time - self._break_time
+        return self.finishing_time - self.starting_time - self.break_time
 
     # def _calc_scheduled_worktime(self) -> timedelta:
     #     """
@@ -49,9 +49,9 @@ class Worker:
     #     """
     #
     #     if self.is_weekday:
-    #         overflow_time = self.total_worktime - SCHEDULED_WORKINGTIME
+    #         overflow_time = self.total_worktime - self.SCHEDULED_WORKINGTIME
     #         if overflow_time > timedelta(0):
-    #             return SCHEDULED_WORKINGTIME
+    #             return self.SCHEDULED_WORKINGTIME
     #         else:
     #             return self.total_worktime
     #     return timedelta(0)
@@ -64,7 +64,7 @@ class Worker:
     #     """
     #
     #     if self.is_weekday:
-    #         scheduled_over = self.total_worktime - SCHEDULED_WORKINGTIME
+    #         scheduled_over = self.total_worktime - self.SCHEDULED_WORKINGTIME
     #         if scheduled_over > timedelta(0):
     #             return scheduled_over
     #         else:
@@ -78,7 +78,7 @@ class Worker:
         :return: 平日所定内労働時間, 平日所定外時間
         """
 
-        if self._is_weekday:
+        if self.is_weekday:
             overflow_time = self.total_worktime - self.SCHEDULED_WORKINGTIME
             if overflow_time > timedelta(0):
                 return self.SCHEDULED_WORKINGTIME, overflow_time
