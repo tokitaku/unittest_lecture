@@ -32,4 +32,4 @@ class Payroll:
     @property
     def total_salary(self) -> int:
         """給与合計"""
-        return int(self.scheduled_salary + self.overtime_salary + self.holiday_salary)
+        return self.scheduled_salary + self.overtime_salary + self.holiday_salary
