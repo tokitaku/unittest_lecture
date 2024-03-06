@@ -56,7 +56,7 @@ class Worker:
                 return self.total_worktime
         return timedelta(0)
 
-    def _calc_overtime(self):
+    def _calc_overtime(self) -> timedelta:
         """
         平日所定外時間を計算する
 
@@ -71,7 +71,7 @@ class Worker:
                 return timedelta(0)
         return timedelta(0)
 
-    def _calc_holiday_worktime(self):
+    def _calc_holiday_worktime(self) -> timedelta:
         """
         休日労働時間を計算する
 
