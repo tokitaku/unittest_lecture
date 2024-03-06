@@ -19,19 +19,19 @@ class TestWeekdayScheduledWorker(TestCase):
 
     def test_total_worktime(self):
         """総労働時間計算のテスト"""
-        self.assertEqual(self.taro.total_worktime, timedelta(hours=7))
+        self.assertEqual(self.taro.total_worktime, 7.0)
 
     def test_scheduled_worktime(self):
         """所定内労働時間計算のテスト"""
-        self.assertEqual(self.taro.scheduled_worktime, timedelta(hours=7))
+        self.assertEqual(self.taro.scheduled_worktime, 7.0)
 
     def test_overtime(self):
         """所定外労働時間計算のテスト"""
-        self.assertEqual(self.taro.over_worktime, timedelta(0))
+        self.assertEqual(self.taro.over_worktime, 0.0)
 
     def test_holiday_worktime(self):
         """休日労働時間計算のテスト"""
-        self.assertEqual(self.taro.holiday_worktime, timedelta(0))
+        self.assertEqual(self.taro.holiday_worktime, 0.0)
 
 
 class TestWeekdayOvertimeWorker(TestCase):
@@ -49,19 +49,19 @@ class TestWeekdayOvertimeWorker(TestCase):
 
     def test_total_worktime(self):
         """総労働時間計算のテスト"""
-        self.assertEqual(self.jiro.total_worktime, timedelta(hours=9))
+        self.assertEqual(self.jiro.total_worktime, 9.0)
 
     def test_scheduled_worktime(self):
         """所定内労働時間計算のテスト"""
-        self.assertEqual(self.jiro.scheduled_worktime, timedelta(hours=8))
+        self.assertEqual(self.jiro.scheduled_worktime, 8.0)
 
     def test_overtime(self):
         """所定外労働時間計算のテスト"""
-        self.assertEqual(self.jiro.over_worktime, timedelta(hours=1))
+        self.assertEqual(self.jiro.over_worktime, 1.0)
 
     def test_holiday_worktime(self):
         """休日労働時間計算のテスト"""
-        self.assertEqual(self.jiro.holiday_worktime, timedelta(0))
+        self.assertEqual(self.jiro.holiday_worktime, 0.0)
 
 
 class HolidayWorker(TestCase):
@@ -79,16 +79,16 @@ class HolidayWorker(TestCase):
 
     def test_total_worktime(self):
         """総労働時間計算のテスト"""
-        self.assertEqual(self.saburo.total_worktime, timedelta(hours=7))
+        self.assertEqual(self.saburo.total_worktime, 7.0)
 
     def test_scheduled_worktime(self):
         """所定内労働時間計算のテスト"""
-        self.assertEqual(self.saburo.scheduled_worktime, timedelta(0))
+        self.assertEqual(self.saburo.scheduled_worktime, 0.0)
 
     def test_overtime(self):
         """所定外労働時間計算のテスト"""
-        self.assertEqual(self.saburo.over_worktime, timedelta(0))
+        self.assertEqual(self.saburo.over_worktime, 0.0)
 
     def test_holiday_worktime(self):
         """休日労働時間計算のテスト"""
-        self.assertEqual(self.saburo.holiday_worktime, timedelta(hours=7))
+        self.assertEqual(self.saburo.holiday_worktime, 7.0)
