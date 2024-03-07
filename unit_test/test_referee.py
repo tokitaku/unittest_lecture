@@ -34,6 +34,27 @@ class TestReferee(TestCase):
         result = self.referee._is_user_win(self.user.hand, self.cpu.hand)
         self.assertTrue(result)
 
+    def test_user_lose_rock_vs_paper(self):
+        """ ユーザーがグー、CPUがパーでユーザーが負けるケース """
+        self.user.hand = rock
+        self.cpu.hand = paper
+        result = self.referee._is_user_win(self.user.hand, self.cpu.hand)
+        self.assertFalse(result)
+
+    def test_user_lose_scissors_vs_rock(self):
+        """ ユーザーがチョキ、CPUがグーでユーザーが負けるケース """
+        self.user.hand = scissors
+        self.cpu.hand = rock
+        result = self.referee._is_user_win(self.user.hand, self.cpu.hand)
+        self.assertFalse(result)
+
+    def test_user_lose_paper_vs_scissors(self):
+        """ ユーザーがパー、CPUがチョキでユーザーが負けるケース """
+        self.user.hand = paper
+        self.cpu.hand = scissors
+        result = self.referee._is_user_win(self.user.hand, self.cpu.hand)
+        self.assertFalse(result)
+
     def test_judge_message_win(self):
         """ 勝利メッセージのテスト """
         self.user.hand = paper
