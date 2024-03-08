@@ -3,7 +3,7 @@ import pytest
 from janken.hands import rock, scissors, paper
 
 
-class TestHand:
+class TestHandName:
     @pytest.fixture(autouse=True)
     def setup(self):
         self.rock_art = rock
