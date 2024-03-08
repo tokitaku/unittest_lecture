@@ -1,6 +1,6 @@
 from unittest import TestCase
-from janken.hands import rock, paper, scissors
 
+from janken.hands import rock, paper, scissors
 from janken.player import User, CPU
 from janken.referee import Referee
 
