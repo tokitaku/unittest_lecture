@@ -1,5 +1,5 @@
-from art_manager import ArtManager
-from deal_helper import (
+from blackjack.art_manager import ArtManager
+from blackjack.deal_helper import (
     ask_bets,
     ask_stand,
     ask_user_replay_decision,
@@ -7,7 +7,7 @@ from deal_helper import (
     Odds,
     ScoreRules,
 )
-from player import User, Dealer, UserGameState
+from blackjack.player import User, Dealer, UserGameState
 
 
 class GameManager:

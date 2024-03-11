@@ -2,7 +2,7 @@ from random import shuffle
 
 import colorama
 
-from art_manager import ArtManager
+from blackjack.art_manager import ArtManager
 
 
 class Card:

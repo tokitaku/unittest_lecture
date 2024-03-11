@@ -1,7 +1,7 @@
 from enum import Enum, auto
 
-from card import Card, Deck
-from deal_helper import ScoreRules
+from blackjack.card import Card, Deck
+from blackjack.deal_helper import ScoreRules
 
 
 class UserGameState(Enum):
@@ -23,6 +23,7 @@ class Player:
         self.score = 0
         self.is_stand = False
         self.is_burst = False
+        self.is_natural_blackjack = False
         self.hand: list[Card] = []
 
     def hit(self):
@@ -30,6 +31,7 @@ class Player:
 
         self.hand.append(self._deck.deal_a_card())
         self.calculate_score()
+        self.is_natural_blackjack = self.score == ScoreRules.BLACK_JACK.value and len(self.hand) == 2
         if self.score > ScoreRules.BLACK_JACK.value:
             self.is_burst = True
 
@@ -90,12 +92,6 @@ class User(Player):
         self.game_result = UserGameState.INIT
         self.bet_amount = 0
         self.bet_distribute_rate = 0
-        self.is_natural_blackjack = False
-
-    def hit(self):
-        """カードを1枚引いてスコアを計算し、ナチュラルブラックジャックかどうかも判定する"""
-        super().hit()
-        self.is_natural_blackjack = self.score == ScoreRules.BLACK_JACK.value and len(self.hand) == 2
 
     @property
     def money(self):
