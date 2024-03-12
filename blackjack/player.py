@@ -31,8 +31,6 @@ class Player:
 
         self.hand.append(self._deck.deal_a_card())
         self.calculate_score()
-        if self.score > ScoreRules.BLACK_JACK.value:
-            self.is_burst = True
 
     def stand(self):
         """スタンドしてスコアを計算する"""
@@ -52,6 +50,8 @@ class Player:
             ace_count -= 1
         self.score = adjusted_score
         self.is_natural_blackjack = self.score == ScoreRules.BLACK_JACK.value and len(self.hand) == 2
+        if self.score > ScoreRules.BLACK_JACK.value:
+            self.is_burst = True
 
     def show_card_face(self, num_visible_cards):
         """

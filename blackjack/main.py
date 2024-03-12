@@ -78,7 +78,7 @@ class GameManager:
 
     def _dealer_draw_turn(self):
         """ディーラーのターン"""
-        while self.judge_helper.dealer_should_draw_card():
+        while self.judge_helper.dealer_should_hit_card():
             self.show_helper.show_hand(is_user_turn=False)
             input('ディーラーのターン。エンターキーを押してください:')
             self.dealer.hit()
@@ -101,7 +101,7 @@ class GameManager:
             self.user = manager.user
             self.dealer = manager.dealer
 
-        def dealer_should_draw_card(self):
+        def dealer_should_hit_card(self):
             """
             ディーラーがカードを引くべきかどうかを返す
 
