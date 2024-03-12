@@ -64,7 +64,7 @@ class TestWeekdayOvertimeWorker(TestCase):
         self.assertEqual(self.jiro.holiday_worktime, 0.0)
 
 
-class HolidayWorker(TestCase):
+class TestHolidayWorker(TestCase):
     """休日に働く労働者"""
 
     @classmethod
