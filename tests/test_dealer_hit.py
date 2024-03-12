@@ -17,6 +17,7 @@ class TestDealerHit:
         self.user.score = 15
         self.user.is_burst = False
         self.dealer.score = 16
+        self.dealer.is_burst = False
 
         assert self.manager.judge_helper.dealer_should_hit_card() is True
 
@@ -25,6 +26,7 @@ class TestDealerHit:
         self.user.score = 22
         self.user.is_burst = True
         self.dealer.score = 16
+        self.dealer.is_burst = False
 
         assert self.manager.judge_helper.dealer_should_hit_card() is True
 
@@ -51,6 +53,7 @@ class TestDealerHit:
         self.user.score = 22
         self.user.is_burst = True
         self.dealer.score = 17
+        self.dealer.is_burst = False
 
         assert self.manager.judge_helper.dealer_should_hit_card() is False
 
