@@ -75,22 +75,22 @@ class TestDealerHit:
 
         assert self.manager.judge_helper.dealer_should_hit_card() is True
 
-    @pytest.mark.parametrize('user_score, dealer_score, is_burst, expected', [
+    @pytest.mark.parametrize('user_score, dealer_score expected', [
         # ディーラーが引くパターン
-        (15, 16, {"user": False, "dealer": False}, True),  # ディーラーがユーザーに得点で勝っていても17点未満の場合は引く
-        (22, 16, {"user": True, "dealer": False}, True),  # ユーザーがバースト (21点を超える) し、ディーラーが17点未満の場合は引く
+        (15, 16, True),  # ディーラーがユーザーに得点で勝っていても17点未満の場合は引く
+        (22, 16, True),  # ユーザーがバースト (21点を超える) し、ディーラーが17点未満の場合は引く
         # ディーラーが引かないパターン
-        (18, 19, {"user": False, "dealer": False}, False),  # ディーラーが17点以上かつユーザーに勝っている場合は引かない
-        (22, 17, {"user": True, "dealer": False}, False),  # ユーザーがバーストし、ディーラーが17点以上の場合は引かない
-        (21, 21, {"user": False, "dealer": False}, False),  # ユーザーが21点、ディーラーも21点の場合は引かない
-        (20, 20, {"user": False, "dealer": False}, True),  # ディーラーとユーザーが21点未満かつ同点の場合は引く
+        (18, 19, False),  # ディーラーが17点以上かつユーザーに勝っている場合は引かない
+        (22, 17, False),  # ユーザーがバーストし、ディーラーが17点以上の場合は引かない
+        (21, 21, False),  # ユーザーが21点、ディーラーも21点の場合は引かない
+        (20, 20, True),  # ディーラーとユーザーが21点未満かつ同点の場合は引く
     ])
-    def test_dealer_hit(self, user_score, dealer_score, is_burst, expected):
+    def test_dealer_hit(self, user_score, dealer_score, expected):
         """ディーラーがカードを引くべきかどうかのテスト"""
         manager = GameManager()
         manager.user.score = user_score
-        manager.user.is_burst = is_burst["user"]
+        manager.user.is_burst = user_score > 21
         manager.dealer.score = dealer_score
-        manager.dealer.is_burst = is_burst["dealer"]
+        manager.dealer.is_burst = dealer_score > 21
 
         assert manager.judge_helper.dealer_should_hit_card() is expected
