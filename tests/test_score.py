@@ -45,6 +45,13 @@ class TestScoreByFixture:
         player.calculate_score()
         assert player.score == 21
 
+    def test_calculate_natual_blackjack_state(self):
+        """手札がナチュラルブラックジャック(21点)の状態テスト"""
+        player = Player("test")
+        player.hand = [self.hearts_ace, self.spade_king]
+        player.calculate_score()
+        assert player.is_natural_blackjack is True
+
 
 class TestScoreByMarkParametrize:
     """手札のスコア計算のテスト(マーク付きパラメータ化を使ったテスト)"""
