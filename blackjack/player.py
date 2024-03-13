@@ -49,7 +49,9 @@ class Player:
             adjusted_score -= 10
             ace_count -= 1
         self.score = adjusted_score
+
         self.is_natural_blackjack = self.score == ScoreRules.BLACK_JACK.value and len(self.hand) == 2
+
         if self.score > ScoreRules.BLACK_JACK.value:
             self.is_burst = True
 
