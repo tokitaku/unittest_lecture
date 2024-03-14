@@ -1,6 +1,6 @@
 import pytest
 
-from unit_test.test_can_drink import can_drink_alcohol
+from test_unittest.test_can_drink import can_drink_alcohol
 
 
 def test_can_drink():

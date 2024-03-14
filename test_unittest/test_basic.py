@@ -10,7 +10,7 @@ def return_none():
 
 
 class TestUnitTestClass(TestCase):
-    """ unit_test のテストクラス """
+    """ test_unittest のテストクラス """
 
     def test_method(self):
         """ add のテスト """

@@ -24,3 +24,23 @@ class TestPlayer(TestCase):
         player = Player()
         player.hand = CHOICES['c']
         self.assertEqual(player.hand, scissors)
+
+
+class TestPlayerAntiPattern(TestCase):
+    """ Player 手のテスト """
+
+    def test_choices(self):
+        """Player の手の選択肢のテスト"""
+        player = Player()
+
+        # グーのテスト
+        player.hand = CHOICES['g']
+        self.assertEqual(player.hand, rock)
+
+        # パーのテスト
+        player.hand = CHOICES['p']
+        self.assertEqual(player.hand, paper)
+
+        # チョキのテスト
+        player.hand = CHOICES['c']
+        self.assertEqual(player.hand, scissors)
