@@ -75,7 +75,7 @@ class TestDealerHit:
 
         assert self.manager.judge_helper.dealer_should_hit_card() is True
 
-    @pytest.mark.parametrize('user_score, dealer_score expected', [
+    @pytest.mark.parametrize('user_score, dealer_score, expected', [
         # ディーラーが引くパターン
         (15, 16, True),  # ディーラーがユーザーに得点で勝っていても17点未満の場合は引く
         (22, 16, True),  # ユーザーがバースト (21点を超える) し、ディーラーが17点未満の場合は引く
