@@ -12,5 +12,3 @@ class TestUnitTestClass(TestCase):
     def test_raise_not_with(self):
         """ ValueError が発生するか確認 """
         self.assertRaises(ValueError, int, 'a')
-
-
