@@ -4,4 +4,5 @@
 branch = True
 omit =
     tests/*
+    test_*/*
     test_*
