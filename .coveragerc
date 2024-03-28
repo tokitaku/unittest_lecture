@@ -1,8 +1,0 @@
-#ref: https://coverage.readthedocs.io/en/latest/config.html?highlight=.coveragerc
-# .coveragerc to control coverage.py
-[run]
-branch = True
-omit =
-    tests/*
-    test_*/*
-    test_*
