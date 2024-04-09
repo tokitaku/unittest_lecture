@@ -28,7 +28,7 @@ class TestPayrollWeekdayScheduledWorker(TestCase):
         self.holiday_salary = taro.holiday_worktime * hourly_pay * HOLIDAY_RATE
 
     def test_scheduled_salary(self):
-        """所定労働時間の給与が正しいか"""
+        """所定内労働時間の給与が正しいか"""
         self.assertEqual(self.payroll.scheduled_salary, self.scheduled_salary)
 
     def test_overtime_salary(self):
@@ -64,7 +64,7 @@ class TestPayrollWeekdayOverTimeWorker(TestCase):
         self.holiday_salary = jiro.holiday_worktime * hourly_pay * HOLIDAY_RATE
 
     def test_scheduled_salary(self):
-        """所定労働時間の給与が正しいか"""
+        """所定内労働時間の給与が正しいか"""
         self.assertEqual(self.payroll.scheduled_salary, self.scheduled_salary)
 
     def test_overtime_salary(self):
@@ -100,7 +100,7 @@ class TestPayrollHolidayWorker(TestCase):
         self.holiday_salary = saburo.holiday_worktime * hourly_pay * HOLIDAY_RATE
 
     def test_scheduled_salary(self):
-        """所定労働時間の給与が正しいか"""
+        """所定内労働時間の給与が正しいか"""
         self.assertEqual(self.payroll.scheduled_salary, self.scheduled_salary)
 
     def test_overtime_salary(self):

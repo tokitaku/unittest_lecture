@@ -5,7 +5,7 @@ from working.worker import Worker
 
 
 class TestWeekdayScheduledWorker(TestCase):
-    """ 平日、所定労働時間内で働く労働者 """
+    """平日、所定労働時間内で働く労働者"""
 
     def setUp(self):
         self.taro = Worker(
