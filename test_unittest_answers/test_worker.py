@@ -7,9 +7,8 @@ from working.worker import Worker
 class TestWeekdayScheduledWorker(TestCase):
     """ 平日、所定労働時間内で働く労働者 """
 
-    @classmethod
-    def setUpClass(cls):
-        cls.taro = Worker(
+    def setUp(self):
+        self.taro = Worker(
             name='Taro',
             starting_time=datetime(2024, 1, 1, 8, 30),
             finishing_time=datetime(2024, 1, 1, 16, 30),
@@ -37,9 +36,8 @@ class TestWeekdayScheduledWorker(TestCase):
 class TestWeekdayOvertimeWorker(TestCase):
     """平日、所定労働時間外で働く労働者"""
 
-    @classmethod
-    def setUpClass(cls):
-        cls.jiro = Worker(
+    def setUp(self):
+        self.jiro = Worker(
             name='Jiro',
             starting_time=datetime(2024, 1, 1, 8, 30),
             finishing_time=datetime(2024, 1, 1, 18, 30),
@@ -67,9 +65,8 @@ class TestWeekdayOvertimeWorker(TestCase):
 class TestHolidayWorker(TestCase):
     """休日に働く労働者"""
 
-    @classmethod
-    def setUpClass(cls):
-        cls.saburo = Worker(
+    def setUp(self):
+        self.saburo = Worker(
             name='Saburo',
             starting_time=datetime(2024, 1, 1, 8, 30),
             finishing_time=datetime(2024, 1, 1, 16, 30),
