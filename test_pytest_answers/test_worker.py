@@ -43,7 +43,7 @@ class TestWeekdayOvertimeWorker:
 
     @pytest.fixture(autouse=True)
     def setup(self):
-        self.worker = Worker(
+        self.jiro = Worker(
             name='Jiro',
             starting_time=datetime(2024, 1, 1, 8, 30),
             finishing_time=datetime(2024, 1, 1, 18, 30),
@@ -53,19 +53,19 @@ class TestWeekdayOvertimeWorker:
 
     def test_total_worktime(self):
         """総労働時間計算のテスト"""
-        assert self.worker.total_worktime == 9.0
+        assert self.jiro.total_worktime == 9.0
 
     def test_scheduled_worktime(self):
         """所定内労働時間計算のテスト"""
-        assert self.worker.scheduled_worktime == 8.0
+        assert self.jiro.scheduled_worktime == 8.0
 
     def test_overtime(self):
         """所定外労働時間計算のテスト"""
-        assert self.worker.over_worktime == 1.0
+        assert self.jiro.over_worktime == 1.0
 
     def test_holiday_worktime(self):
         """休日労働時間計算のテスト"""
-        assert self.worker.holiday_worktime == 0.0
+        assert self.jiro.holiday_worktime == 0.0
 
 
 class TestHolidayWorker:
@@ -73,7 +73,7 @@ class TestHolidayWorker:
 
     @pytest.fixture(autouse=True)
     def setup(self):
-        self.worker = Worker(
+        self.saburo = Worker(
             name='Saburo',
             starting_time=datetime(2024, 1, 1, 8, 30),
             finishing_time=datetime(2024, 1, 1, 16, 30),
@@ -83,16 +83,16 @@ class TestHolidayWorker:
 
     def test_total_worktime(self):
         """総労働時間計算のテスト"""
-        assert self.worker.total_worktime == 7.0
+        assert self.saburo.total_worktime == 7.0
 
     def test_scheduled_worktime(self):
         """所定内労働時間計算のテスト"""
-        assert self.worker.scheduled_worktime == 0.0
+        assert self.saburo.scheduled_worktime == 0.0
 
     def test_overtime(self):
         """所定外労働時間計算のテスト"""
-        assert self.worker.over_worktime == 0.0
+        assert self.saburo.over_worktime == 0.0
 
     def test_holiday_worktime(self):
         """休日労働時間計算のテスト"""
-        assert self.worker.holiday_worktime == 7.0
+        assert self.saburo.holiday_worktime == 7.0
