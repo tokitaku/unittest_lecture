@@ -6,10 +6,12 @@ from janken.hands import rock, scissors, paper
 class TestHandName:
     @pytest.fixture(autouse=True)
     def setup(self):
+        print("前処理")
         self.rock_art = rock
         self.paper_art = paper
         self.scissors_art = scissors
         yield
+        print("後処理")
 
     def test_rock_name(self):
         print(self.rock_art.art)

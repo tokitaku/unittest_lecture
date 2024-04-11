@@ -15,6 +15,9 @@ class TestReferee:
         (rock, paper, False),  # ユーザーがグー、CPUがパーでユーザーが負けるケース
         (scissors, rock, False),  # ユーザーがチョキ、CPUがグーでユーザーが負けるケース
         (paper, scissors, False),  # ユーザーがパー、CPUがチョキでユーザーが負けるケース
+        (rock, rock, False),  # ユーザーがグー、CPUもグーであいこ
+        (scissors, scissors, False),  # ユーザーがチョキ、CPUもチョキであいこ
+        (paper, paper, False),  # ユーザーがパー、CPUもパーであいこ
     ])
     def test_is_user_win_lose_result(self, user_hand, cpu_hand, expected):
         """ 勝敗判定のテスト"""
