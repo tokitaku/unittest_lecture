@@ -5,6 +5,8 @@ import pytest
 from working.worker import Worker
 
 
+# 平日、所定労働時間内で働く労働者
+
 @pytest.fixture
 def setup():
     yield Worker(
