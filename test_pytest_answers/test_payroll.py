@@ -9,6 +9,7 @@ OVERTIME_RATE = 1.25
 HOLIDAY_RATE = 1.35
 
 
+# 平日労働者 (所定労働8時間、所定外労働0時間、休日労働0時間)
 @pytest.fixture
 def setup():
     hourly_pay = 1000
