@@ -1,4 +1,5 @@
 import pytest
+
 from blackjack.card import Card
 
 
