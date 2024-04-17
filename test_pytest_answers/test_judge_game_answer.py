@@ -4,13 +4,13 @@ from blackjack.main import GameManager
 from blackjack.player import UserGameState
 
 
-@pytest.mark.parametrize('user_score, dealer_score, expected_result', [
+@pytest.mark.parametrize('user_score, dealer_score, expected', [
     (19, 16, UserGameState.WIN),  # ユーザーが勝つ
     (16, 19, UserGameState.LOSE),  # ディーラーが勝つ
     (16, 16, UserGameState.DRAW),  # 引き分け
     (22, 22, UserGameState.LOSE),  # 双方バーストでユーザーが負ける
 ])
-def test_evaluate_game(user_score, dealer_score, expected_result):
+def test_evaluate_game(user_score, dealer_score, expected):
     """勝敗判定のテスト"""
     manager = GameManager()
     user = manager.user
@@ -24,4 +24,4 @@ def test_evaluate_game(user_score, dealer_score, expected_result):
 
     manager.judge_helper._judge_game()
 
-    assert user.game_result == expected_result
+    assert user.game_result == expected
