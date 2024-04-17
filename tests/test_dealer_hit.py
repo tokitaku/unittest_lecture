@@ -85,28 +85,26 @@ class TestDealerHit:
         assert self.manager.judge_helper.dealer_should_hit_card() is False
 
 
-class TestDealerHitByParametrize:
+@pytest.mark.parametrize("user_score, dealer_score, expected", [
+    (15, 16, True),  # ディーラーがユーザーに得点で勝っていても17点未満の場合は引く
+    (22, 16, True),  # ユーザーがバーストし、ディーラーが17点未満の場合は引く
+    (20, 15, True),  # ディーラーがユーザーに得点で負けている場合は引く
+    (20, 20, True),  # ディーラーとユーザーが21点未満かつ同点の場合は引く
+    (20, 22, False),  # ディーラーがバーストしている場合は引かない
+    (15, 20, False),  # ディーラーが17点以上かつユーザーに勝っている場合は引かない
+    (22, 17, False),  # ユーザーがバーストし、ディーラーが17点以上の場合は引かない
+    (21, 21, False),  # ユーザーが21点、ディーラーも21点の場合は引かない
+])
+def test_dealer_should_hit(user_score, dealer_score, expected):
     """ディーラーがヒットするかどうかのテスト (parametrize を使用)"""
+    manager = GameManager()
+    user = manager.user
+    dealer = manager.dealer
 
-    @pytest.mark.parametrize("user_score, dealer_score, expected", [
-        (15, 16, True),  # ディーラーがユーザーに得点で勝っていても17点未満の場合は引く
-        (22, 16, True),  # ユーザーがバースト (21点を超える) し、ディーラーが17点未満の場合は引く
-        (20, 15, True),  # ディーラーがユーザーに得点で負けている場合は引く
-        (20, 20, True),  # ディーラーとユーザーが21点未満かつ同点の場合は引く
-        (20, 22, False),  # ディーラーがバーストしている場合は引かない
-        (15, 20, False),  # ディーラーが17点以上かつユーザーに勝っている場合は引かない
-        (22, 17, False),  # ユーザーがバーストし、ディーラーが17点以上の場合は引かない
-        (21, 21, False),  # ユーザーが21点、ディーラーも21点の場合は引かない
-    ]
-                             )
-    def test_dealer_should_hit(self, user_score, dealer_score, expected):
-        self.manager = GameManager()
-        self.user = self.manager.user
-        self.dealer = self.manager.dealer
+    user.score = user_score
+    user.is_burst = user_score > 21
 
-        self.user.score = user_score
-        self.user.is_burst = user_score > 21
-        self.dealer.score = dealer_score
-        self.dealer.is_burst = dealer_score > 21
+    dealer.score = dealer_score
+    dealer.is_burst = dealer_score > 21
 
-        assert self.manager.judge_helper.dealer_should_hit_card() == expected
+    assert manager.judge_helper.dealer_should_hit_card() == expected
