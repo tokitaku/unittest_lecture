@@ -13,7 +13,7 @@ class TestOdds:
         self.user = self.manager.user
         self.dealer = self.manager.dealer
 
-    def test_odds_natural_bj(self):
+    def test_odds_natural_blackjack(self):
         """ナチュラルブラックジャックの掛け金分配率テスト"""
         self.user.is_natural_blackjack = True
         self.user.score = 21
@@ -44,4 +44,3 @@ class TestOdds:
         self.dealer.score = 20
         self.manager.judge_helper.evaluate_judge()
         assert self.user.bet_distribute_rate == Odds.LOSE.value
-
