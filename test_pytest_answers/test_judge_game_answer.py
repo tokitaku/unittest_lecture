@@ -10,18 +10,18 @@ from blackjack.player import UserGameState
     (16, 16, UserGameState.DRAW),  # 引き分け
     (22, 22, UserGameState.LOSE),  # 双方バーストでユーザーが負ける
 ])
-def test_evaluate_game(self, user_score, dealer_score, expected_result):
+def test_evaluate_game(user_score, dealer_score, expected_result):
     """勝敗判定のテスト"""
-    self.manager = GameManager()
-    self.user = self.manager.user
-    self.dealer = self.manager.dealer
+    manager = GameManager()
+    user = manager.user
+    dealer = manager.dealer
 
-    self.user.score = user_score
-    self.user.is_burst = user_score > 21
+    user.score = user_score
+    user.is_burst = user_score > 21
 
-    self.dealer.score = dealer_score
-    self.dealer.is_burst = dealer_score > 21
+    dealer.score = dealer_score
+    dealer.is_burst = dealer_score > 21
 
-    self.manager.judge_helper._judge_game()
+    manager.judge_helper._judge_game()
 
-    assert self.user.game_result == expected_result
+    assert user.game_result == expected_result
