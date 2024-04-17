@@ -8,7 +8,7 @@ class TestJudgeGame:
     """勝敗判定のテスト"""
 
     @pytest.fixture(autouse=True)
-    def setup_game_manager(self):
+    def setup(self):
         self.manager = GameManager()
         self.user = self.manager.user
         self.dealer = self.manager.dealer
@@ -60,4 +60,3 @@ class TestJudgeGame:
         self.manager.judge_helper._judge_game()
 
         assert self.user.game_result == UserGameState.LOSE
-
